@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: rubros
+#
+#  id           :bigint           not null, primary key
+#  rubro_active :boolean          default(TRUE)
+#  rubro_desc   :string
+#  rubro_iva    :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rubro_desc: MyString
+  rubro_iva: 1
+
+two:
+  rubro_desc: MyString
+  rubro_iva: 1

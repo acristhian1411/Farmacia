@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: sectores
+#
+#  id          :bigint           not null, primary key
+#  sect_active :boolean          default(TRUE)
+#  sect_desc   :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  almacene_id :bigint
+#
+# Indexes
+#
+#  index_sectores_on_almacene_id  (almacene_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (almacene_id => almacenes.id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sect_desc: MyString
+  almacene: one
+
+two:
+  sect_desc: MyString
+  almacene: two

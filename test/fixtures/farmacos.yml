@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: farmacos
+#
+#  id           :bigint           not null, primary key
+#  farma_active :boolean          default(TRUE)
+#  farma_desc   :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farma_desc: MyString
+  farma_active: false
+
+two:
+  farma_desc: MyString
+  farma_active: false
