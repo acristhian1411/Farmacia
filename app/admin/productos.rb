@@ -48,7 +48,7 @@ ActiveAdmin.register Producto do
    form title: 'Productos' do |f|
        inputs 'Detalles' do
          input :rubro_id,  label: "Rubros", :as => :select, :collection => Rubro.activo.map{|a|["#{a.rubro_desc}", a.id]}
-         input :laboratorio_id,  label: "Laboratorio", :as => :select, :collection => Laboratorio.activo.map{|a|["#{a.lab_desc}", a.id]}
+         input :laboratorio_id,  label: "Laboratorio", input_html: { class: "select2" }, :as => :select, :collection => Laboratorio.activo.map{|a|["#{a.lab_desc}", a.id]}
          input :prod_desc, label: "Descripcion"
          input :prod_precio, label: "Precio"
          input :prod_bcode, label: "Codigo de barras"
@@ -60,11 +60,12 @@ ActiveAdmin.register Producto do
             i.input :pfar_cant, label: "Cantidad", :hint => "Ingrese la cantidad"
           end
       end
-
+      span class: "has_many" do
       f.inputs "Sectores" do
           f.has_many :prod_sectore do |i|
             i.input :sectore_id,  label: "Sectores", :hint => "Elija el sector al que corresponde", :as => :select, :collection => Sectore.activo.map{|a|["#{a.sect_desc}", a.id]}
           end
+        end
       end
        actions
       end

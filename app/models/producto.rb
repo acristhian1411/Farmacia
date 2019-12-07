@@ -27,7 +27,7 @@ class Producto < ApplicationRecord
   belongs_to :laboratorio
   belongs_to :rubro
   has_many :prod_farma
-  has_many :prod_sectore
+  has_one :prod_sectore
 
 accepts_nested_attributes_for :prod_farma, :prod_sectore
 

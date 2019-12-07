@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_162415) do
+ActiveRecord::Schema.define(version: 2019_12_03_150302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 2019_11_27_162415) do
     t.boolean "alma_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cajas", force: :cascade do |t|
+    t.bigint "tipo_caja_id"
+    t.bigint "tmov_caja_id"
+    t.date "caja_fecha"
+    t.float "caja_monto"
+    t.string "caja_desc"
+    t.boolean "caja_es"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tipo_caja_id"], name: "index_cajas_on_tipo_caja_id"
+    t.index ["tmov_caja_id"], name: "index_cajas_on_tmov_caja_id"
   end
 
   create_table "farmacos", force: :cascade do |t|
@@ -122,6 +135,22 @@ ActiveRecord::Schema.define(version: 2019_11_27_162415) do
     t.index ["almacene_id"], name: "index_sectores_on_almacene_id"
   end
 
+  create_table "tipo_cajas", force: :cascade do |t|
+    t.string "tcaja_desc"
+    t.boolean "tcaja_active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tmov_cajas", force: :cascade do |t|
+    t.string "tmov_caja"
+    t.boolean "tmov_es"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "cajas", "tipo_cajas"
+  add_foreign_key "cajas", "tmov_cajas"
   add_foreign_key "prod_farmas", "farmacos"
   add_foreign_key "prod_farmas", "productos"
   add_foreign_key "prod_sectores", "productos"

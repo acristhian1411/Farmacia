@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: tipo_cajas
+#
+#  id           :bigint           not null, primary key
+#  tcaja_active :boolean          default(TRUE)
+#  tcaja_desc   :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tcaja_desc: MyString
+  tcaja_active: false
+
+two:
+  tcaja_desc: MyString
+  tcaja_active: false

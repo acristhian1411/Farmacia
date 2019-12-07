@@ -1,4 +1,6 @@
 ActiveAdmin.register AdminUser do
+  menu parent: "Configuracion", label: "Usuarios"
+
   permit_params :email, :password, :password_confirmation
 
   index do

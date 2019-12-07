@@ -14,4 +14,20 @@
 #
 
 class Proveedore < ApplicationRecord
+
+  # Todos los Inactivos
+    scope :inactivo, -> {
+  where('prov_active != ?', true)
+  }
+  # Todos los activos
+  scope :activo, -> {
+  where(:prov_active => true)
+  }
+  # Todos los registros
+  scope :todos, -> {
+  all
+  }
+
+
+
 end
